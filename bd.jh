@@ -1,0 +1,36 @@
+//enum RoundType {
+//  ROUND_UP("向上取整"),
+//  ROUND_DOWN("向下取整"),
+//  ROUND_HALF_UP("四舍五入")
+//}
+
+//entity Currtype {
+//  code String required unique maxlength(101) comment("币种名称"),
+//  name String required maxlength(400) comment("币种编码"),
+//  currMoneyDigit Integer comment("币种金额精度"),
+//  roundType RoundType comment("金额进位类型"),
+//  currPriceDigit Integer comment("币种单价精度"),
+//  priceRoundType RoundType comment("单价进位类型"),
+//}
+
+entity MaterialClass {
+  code String required unique maxlength(101), /**  */
+  name String required maxlength(400),
+  sortNo Integer  ,
+  levelNo Integer ,
+  idPath String ,
+}
+
+relationship ManyToOne {
+  MaterialClass{parentId} to MaterialClass
+}
+// 一对多：一个父分类 → 多个子分类（children 字段反向关联 parent）
+relationship OneToMany {
+  MaterialClass{children} to MaterialClass{parentId}
+}
+
+dto MaterialClass with mapstruct
+paginate MaterialClass with pagination
+service MaterialClass with serviceImpl
+
+filter MaterialClass
