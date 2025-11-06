@@ -1,0 +1,6 @@
+org.springframework.test.context.ContextCustomizerFactory = \
+    com.rabbit.jhipster.rhm.config.\
+    SqlTestContainersSpringContextCustomizerFactory,com.rabbit.jhipster.rhm.\
+    config.TestContainersSpringContextCustomizerFactory,com.rabbit.jhipster.rhm.\
+    config.RedisTestContainersSpringContextCustomizerFactory,com.rabbit.\
+    jhipster.rhm.config.KafkaTestContainersSpringContextCustomizerFactory
